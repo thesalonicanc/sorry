@@ -5,10 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>maaf ya:(</title>
+    <title>Sebuah Surat Untukmu</title>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
+        /* =========================================================
+           FONT
+        ========================================================= */
+
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
 
         * {
             margin: 0;
@@ -22,560 +32,1475 @@
 
         body {
             min-height: 100vh;
-            background:
-                radial-gradient(circle at 50% 35%, rgba(25, 53, 92, 0.35), transparent 35%),
-                radial-gradient(circle at 20% 80%, rgba(12, 35, 65, 0.25), transparent 30%),
-                linear-gradient(135deg, #020409, #050b14 45%, #010204);
-            color: #f1f4f8;
-            font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 50% 40%,
+                    rgba(22, 51, 88, 0.45),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 10% 90%,
+                    rgba(9, 34, 63, 0.35),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #010204 0%,
+                    #030811 45%,
+                    #010204 100%
+                );
+
+            color: #e8edf3;
+
+            font-family: 'Montserrat', sans-serif;
         }
 
-        /* =========================
+
+        /* =========================================================
            BACKGROUND
-        ========================= */
+        ========================================================= */
 
         .background {
             position: fixed;
             inset: 0;
+
             overflow: hidden;
+
             pointer-events: none;
+
             z-index: 0;
         }
 
-        .glow {
+
+        .orb {
             position: absolute;
+
             border-radius: 50%;
-            filter: blur(80px);
+
+            filter: blur(90px);
+
             opacity: 0.18;
         }
 
-        .glow.one {
-            width: 300px;
-            height: 300px;
-            background: #173c6b;
-            top: 5%;
-            left: -100px;
-            animation: floatOne 8s ease-in-out infinite;
+
+        .orb.one {
+            width: 380px;
+            height: 380px;
+
+            background: #174d86;
+
+            top: -150px;
+            left: -130px;
+
+            animation:
+                moveOrbOne 12s ease-in-out infinite;
         }
 
-        .glow.two {
-            width: 250px;
-            height: 250px;
-            background: #0b315c;
-            right: -80px;
-            bottom: 10%;
-            animation: floatTwo 10s ease-in-out infinite;
+
+        .orb.two {
+            width: 320px;
+            height: 320px;
+
+            background: #0c3561;
+
+            right: -100px;
+            bottom: -100px;
+
+            animation:
+                moveOrbTwo 15s ease-in-out infinite;
         }
 
-        @keyframes floatOne {
-            0%, 100% {
+
+        .orb.three {
+            width: 180px;
+            height: 180px;
+
+            background: #245886;
+
+            top: 45%;
+            left: 48%;
+
+            opacity: 0.08;
+
+            animation:
+                pulseOrb 7s ease-in-out infinite;
+        }
+
+
+        @keyframes moveOrbOne {
+
+            0%,
+            100% {
                 transform: translate(0, 0);
             }
 
             50% {
-                transform: translate(50px, 30px);
+                transform: translate(120px, 80px);
             }
+
         }
 
-        @keyframes floatTwo {
-            0%, 100% {
+
+        @keyframes moveOrbTwo {
+
+            0%,
+            100% {
                 transform: translate(0, 0);
             }
 
             50% {
-                transform: translate(-40px, -30px);
+                transform: translate(-100px, -80px);
             }
+
         }
 
-        /* =========================
+
+        @keyframes pulseOrb {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.05;
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 0.12;
+            }
+
+        }
+
+
+        /* =========================================================
+           STARS
+        ========================================================= */
+
+        .stars {
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 1;
+        }
+
+
+        .star {
+            position: absolute;
+
+            width: 2px;
+            height: 2px;
+
+            border-radius: 50%;
+
+            background: #9fc1e5;
+
+            opacity: 0.25;
+
+            animation:
+                twinkle 4s ease-in-out infinite;
+        }
+
+
+        .star:nth-child(1) {
+            top: 12%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .star:nth-child(2) {
+            top: 23%;
+            left: 82%;
+            animation-delay: 1s;
+        }
+
+        .star:nth-child(3) {
+            top: 36%;
+            left: 8%;
+            animation-delay: 2s;
+        }
+
+        .star:nth-child(4) {
+            top: 47%;
+            left: 92%;
+            animation-delay: 0.5s;
+        }
+
+        .star:nth-child(5) {
+            top: 69%;
+            left: 13%;
+            animation-delay: 1.5s;
+        }
+
+        .star:nth-child(6) {
+            top: 82%;
+            left: 78%;
+            animation-delay: 3s;
+        }
+
+        .star:nth-child(7) {
+            top: 18%;
+            left: 53%;
+            animation-delay: 2.5s;
+        }
+
+        .star:nth-child(8) {
+            top: 91%;
+            left: 38%;
+            animation-delay: 1.2s;
+        }
+
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.08;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.75;
+                transform: scale(1.8);
+            }
+
+        }
+
+
+        /* =========================================================
            MAIN
-        ========================= */
+        ========================================================= */
 
-        .container {
+        .page {
             position: relative;
-            z-index: 2;
+
+            z-index: 5;
+
             min-height: 100vh;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
+
+            padding: 30px 18px;
         }
 
-        .card {
+
+        /* =========================================================
+           INTRO
+        ========================================================= */
+
+        .intro {
             width: 100%;
-            max-width: 720px;
-            padding: 55px 50px;
+            max-width: 700px;
+
             text-align: center;
 
-            background: rgba(3, 8, 16, 0.78);
-            border: 1px solid rgba(100, 145, 195, 0.18);
-            border-radius: 28px;
-
-            box-shadow:
-                0 30px 80px rgba(0, 0, 0, 0.65),
-                inset 0 1px 0 rgba(255, 255, 255, 0.03);
-
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-
-            animation: cardAppear 1.5s ease forwards;
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
         }
 
-        @keyframes cardAppear {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .intro.hide {
+            opacity: 0;
+            transform: translateY(-30px);
+            pointer-events: none;
         }
 
-        /* =========================
-           TOP ICON
-        ========================= */
 
-        .symbol {
-            width: 62px;
-            height: 62px;
-            margin: 0 auto 25px;
+        .tiny {
+            font-size: 10px;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            color: #6d8baa;
+
+            margin-bottom: 25px;
+        }
+
+
+        .intro-symbol {
+            width: 82px;
+            height: 82px;
+
+            margin: 0 auto 30px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             border-radius: 50%;
 
-            border: 1px solid rgba(126, 167, 211, 0.35);
-            background: rgba(17, 42, 72, 0.25);
+            border: 1px solid rgba(111, 153, 199, 0.28);
 
-            color: #9dbfe5;
-            font-family: Georgia, serif;
-            font-size: 25px;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(30, 68, 110, 0.25),
+                    rgba(2, 7, 13, 0.7)
+                );
+
+            color: #9bb9d7;
+
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 31px;
 
             box-shadow:
-                0 0 30px rgba(36, 91, 150, 0.12);
+                0 0 45px rgba(20, 72, 125, 0.15);
+
+            animation:
+                symbolFloat 4s ease-in-out infinite;
         }
 
-        /* =========================
-           TEXT
-        ========================= */
 
-        .small-title {
-            font-size: 11px;
-            font-weight: 400;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: #7698bd;
-            margin-bottom: 18px;
+        @keyframes symbolFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-7px);
+            }
+
         }
 
-        h1 {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(48px, 9vw, 82px);
+
+        .intro h1 {
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: clamp(42px, 8vw, 75px);
+
+            line-height: 1;
+
             font-weight: 500;
-            line-height: 0.95;
+
             letter-spacing: 1px;
-            color: #f3f6fa;
-            margin-bottom: 28px;
+
+            margin-bottom: 20px;
+
+            color: #eef3f8;
         }
 
-        .line {
-            width: 70px;
-            height: 1px;
-            margin: 0 auto 30px;
-            background: linear-gradient(
-                to right,
-                transparent,
-                #648ab5,
-                transparent
-            );
-        }
 
-        .message {
-            max-width: 570px;
+        .intro p {
+            max-width: 500px;
+
             margin: 0 auto;
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 23px;
-            line-height: 1.75;
-            font-weight: 400;
-            color: #d6dde6;
+
+            color: #8296ad;
+
+            font-size: 13px;
+
+            line-height: 1.9;
+
+            font-weight: 300;
         }
 
-        .message strong {
-            color: #f1f5f9;
-            font-weight: 600;
-        }
 
-        .signature {
-            margin-top: 35px;
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 25px;
-            color: #91afd0;
-        }
+        /* =========================================================
+           OPEN BUTTON
+        ========================================================= */
 
-        /* =========================
-           MUSIC BUTTON
-        ========================= */
+        .open-button {
+            position: relative;
 
-        .music-area {
-            margin-top: 40px;
-        }
+            margin-top: 42px;
 
-        .music-button {
-            border: 1px solid rgba(119, 160, 205, 0.35);
-            background: rgba(17, 39, 66, 0.35);
-            color: #dce8f5;
+            padding: 15px 32px;
 
-            padding: 13px 25px;
             border-radius: 50px;
 
+            border: 1px solid rgba(119, 161, 205, 0.38);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(20, 48, 80, 0.65),
+                    rgba(5, 13, 23, 0.8)
+                );
+
+            color: #dce8f5;
+
             font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
-            font-weight: 400;
-            letter-spacing: 1px;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
 
             cursor: pointer;
 
             transition:
-                background 0.3s ease,
                 transform 0.3s ease,
-                box-shadow 0.3s ease;
+                box-shadow 0.3s ease,
+                background 0.3s ease;
         }
 
-        .music-button:hover {
-            background: rgba(29, 64, 103, 0.5);
-            transform: translateY(-2px);
+
+        .open-button:hover {
+
+            transform: translateY(-4px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(29, 65, 105, 0.75),
+                    rgba(6, 15, 27, 0.9)
+                );
 
             box-shadow:
-                0 8px 25px rgba(14, 49, 85, 0.3);
+                0 15px 40px rgba(10, 42, 76, 0.3);
         }
 
-        .music-status {
-            margin-top: 12px;
-            min-height: 16px;
 
-            font-size: 10px;
-            letter-spacing: 1px;
-            color: #637c99;
+        .open-button span {
+            margin-left: 8px;
+
+            color: #759bc2;
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
 
-        .footer {
-            margin-top: 45px;
-            padding-top: 20px;
+        /* =========================================================
+           LETTER
+        ========================================================= */
 
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        .letter-wrapper {
 
-            font-size: 10px;
-            letter-spacing: 2px;
-            color: #50657d;
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px 15px;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform: scale(0.92) translateY(30px);
+
+            transition:
+                opacity 1s ease,
+                transform 1s cubic-bezier(.2,.8,.2,1),
+                visibility 1s ease;
+
+            z-index: 10;
         }
 
-        /* =========================
-           STARS
-        ========================= */
 
-        .star {
-            position: fixed;
-            width: 2px;
+        .letter-wrapper.show {
+
+            position: relative;
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transform: scale(1) translateY(0);
+
+            min-height: 100vh;
+        }
+
+
+        .letter {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 680px;
+
+            padding: 55px 55px 45px;
+
+            border-radius: 4px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(8, 17, 28, 0.97),
+                    rgba(3, 8, 14, 0.98)
+                );
+
+            border: 1px solid rgba(111, 153, 198, 0.22);
+
+            box-shadow:
+                0 40px 100px rgba(0, 0, 0, 0.7),
+                0 0 60px rgba(15, 57, 96, 0.1);
+
+            overflow: hidden;
+        }
+
+
+        /* garis dekorasi */
+
+        .letter::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            right: 0;
+
             height: 2px;
-            background: #b9d4f2;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #507ba7,
+                    transparent
+                );
+        }
+
+
+        .letter::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
             border-radius: 50%;
-            opacity: 0.35;
+
+            background: #173b61;
+
+            filter: blur(100px);
+
+            opacity: 0.12;
+
+            top: -120px;
+            right: -100px;
+
             pointer-events: none;
-            z-index: 1;
-            animation: twinkle 4s ease-in-out infinite;
         }
 
-        @keyframes twinkle {
-            0%, 100% {
-                opacity: 0.15;
-            }
 
-            50% {
-                opacity: 0.7;
-            }
+        .letter-top {
+
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 45px;
+
+            padding-bottom: 18px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.05);
         }
 
-        /* =========================
+
+        .letter-label {
+
+            font-size: 9px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            color: #607c9b;
+        }
+
+
+        .date {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size: 17px;
+
+            color: #6685a6;
+        }
+
+
+        .letter h2 {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size: clamp(42px, 7vw, 67px);
+
+            font-weight: 500;
+
+            line-height: 1;
+
+            margin-bottom: 28px;
+
+            color: #f1f5f9;
+        }
+
+
+        .separator {
+
+            width: 55px;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    to right,
+                    #6589ae,
+                    transparent
+                );
+
+            margin-bottom: 30px;
+        }
+
+
+        .letter-content {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size: 21px;
+
+            line-height: 1.75;
+
+            color: #c7d1dc;
+
+            font-weight: 400;
+        }
+
+
+        .letter-content p {
+
+            margin-bottom: 22px;
+        }
+
+
+        .letter-content strong {
+
+            color: #edf2f7;
+
+            font-weight: 600;
+        }
+
+
+        .quote {
+
+            margin: 35px 0;
+
+            padding: 20px 25px;
+
+            border-left:
+                1px solid #557da7;
+
+            background:
+                rgba(17, 42, 70, 0.14);
+
+            color: #a6b9ce;
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size: 23px;
+
+            line-height: 1.5;
+        }
+
+
+        .closing {
+
+            margin-top: 35px;
+
+            color: #849bb4;
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size: 21px;
+
+            line-height: 1.6;
+        }
+
+
+        .signature {
+
+            margin-top: 28px;
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size: 29px;
+
+            color: #a2bdd8;
+        }
+
+
+        /* =========================================================
+           MUSIC
+        ========================================================= */
+
+        .music-box {
+
+            margin-top: 40px;
+
+            padding-top: 22px;
+
+            border-top:
+                1px solid rgba(255,255,255,0.05);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+        }
+
+
+        .music-info {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+        }
+
+
+        .music-icon {
+
+            width: 38px;
+            height: 38px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background:
+                rgba(22, 55, 89, 0.3);
+
+            border:
+                1px solid rgba(106, 151, 196, 0.25);
+
+            color: #91afd0;
+
+            font-size: 15px;
+        }
+
+
+        .music-text {
+
+            text-align: left;
+        }
+
+
+        .music-name {
+
+            font-size: 11px;
+
+            color: #a9b9ca;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        .music-state {
+
+            font-size: 8px;
+
+            color: #58728f;
+
+            letter-spacing: 1px;
+
+            margin-top: 4px;
+        }
+
+
+        .music-button {
+
+            flex-shrink: 0;
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(108, 151, 194, 0.3);
+
+            background:
+                rgba(13, 33, 55, 0.45);
+
+            color: #b6cbe0;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease;
+        }
+
+
+        .music-button:hover {
+
+            transform: scale(1.08);
+
+            background:
+                rgba(24, 58, 93, 0.6);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .letter-footer {
+
+            margin-top: 35px;
+
+            text-align: center;
+
+            font-size: 8px;
+
+            letter-spacing: 3px;
+
+            color: #40566e;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           CLOSE BUTTON
+        ========================================================= */
+
+        .close-button {
+
+            position: absolute;
+
+            top: 18px;
+            right: 18px;
+
+            width: 32px;
+            height: 32px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            background:
+                rgba(5, 12, 20, 0.6);
+
+            color: #71869d;
+
+            cursor: pointer;
+
+            transition:
+                color 0.3s ease,
+                background 0.3s ease;
+        }
+
+
+        .close-button:hover {
+
+            color: #d4e0ec;
+
+            background:
+                rgba(20, 45, 72, 0.6);
+        }
+
+
+        /* =========================================================
            MOBILE
-        ========================= */
+        ========================================================= */
 
         @media (max-width: 600px) {
 
-            .container {
-                padding: 25px 15px;
+            .page {
+                padding: 20px 15px;
             }
 
-            .card {
-                padding: 45px 25px;
-                border-radius: 22px;
+
+            .intro-symbol {
+
+                width: 70px;
+                height: 70px;
+
+                font-size: 27px;
+
             }
 
-            .symbol {
-                width: 55px;
-                height: 55px;
-                margin-bottom: 22px;
+
+            .intro h1 {
+
+                font-size: 51px;
+
             }
 
-            .small-title {
-                font-size: 9px;
-                letter-spacing: 4px;
+
+            .intro p {
+
+                font-size: 12px;
+
+                padding: 0 15px;
+
             }
 
-            h1 {
-                font-size: 55px;
+
+            .letter {
+
+                padding:
+                    42px 25px 30px;
+
             }
 
-            .message {
-                font-size: 20px;
-                line-height: 1.65;
+
+            .letter-top {
+
+                margin-bottom: 35px;
+
             }
 
-            .signature {
-                font-size: 23px;
+
+            .letter h2 {
+
+                font-size: 49px;
+
             }
+
+
+            .letter-content {
+
+                font-size: 19px;
+
+                line-height: 1.7;
+
+            }
+
+
+            .quote {
+
+                font-size: 21px;
+
+                padding:
+                    18px 18px;
+
+            }
+
+
+            .music-box {
+
+                align-items: center;
+
+            }
+
+
+            .music-name {
+
+                font-size: 10px;
+
+            }
+
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- =========================
+
+    <!-- =========================================================
          BACKGROUND
-    ========================= -->
+    ========================================================= -->
 
     <div class="background">
-        <div class="glow one"></div>
-        <div class="glow two"></div>
+
+        <div class="orb one"></div>
+
+        <div class="orb two"></div>
+
+        <div class="orb three"></div>
+
     </div>
 
-    <!-- Bintang-bintang kecil -->
-    <div class="star" style="top:12%; left:18%; animation-delay:0s;"></div>
-    <div class="star" style="top:22%; left:82%; animation-delay:1s;"></div>
-    <div class="star" style="top:35%; left:9%; animation-delay:2s;"></div>
-    <div class="star" style="top:48%; left:91%; animation-delay:1.5s;"></div>
-    <div class="star" style="top:65%; left:15%; animation-delay:3s;"></div>
-    <div class="star" style="top:78%; left:78%; animation-delay:0.5s;"></div>
-    <div class="star" style="top:88%; left:30%; animation-delay:2.5s;"></div>
-    <div class="star" style="top:15%; left:50%; animation-delay:1.2s;"></div>
 
-    <!-- =========================
-         MAIN CONTENT
-    ========================= -->
+    <!-- =========================================================
+         STARS
+    ========================================================= -->
 
-    <main class="container">
+    <div class="stars">
 
-        <section class="card">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
 
-            <div class="symbol">
+    </div>
+
+
+    <!-- =========================================================
+         MUSIC
+    ========================================================= -->
+
+    <audio id="music" loop preload="auto">
+
+        <source
+            src="lagu.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+
+    <!-- =========================================================
+         PAGE
+    ========================================================= -->
+
+    <main class="page">
+
+
+        <!-- =====================================================
+             INTRO
+        ===================================================== -->
+
+        <section class="intro" id="intro">
+
+            <div class="tiny">
+                sebuah pesan kecil
+            </div>
+
+
+            <div class="intro-symbol">
                 ♡
             </div>
 
-            <div class="small-title">
-                Untuk seseorang yang berarti
-            </div>
 
             <h1>
-                Maaf
+                Ada sesuatu<br>
+                yang ingin kusampaikan.
             </h1>
 
-            <div class="line"></div>
 
-            <p class="message">
-                Aku tahu mungkin kata
-                <strong>“maaf”</strong>
-                tidak akan langsung membuat semuanya kembali seperti semula.
-                <br><br>
-
-                Tapi aku ingin kamu tahu bahwa aku benar-benar menyesal
-                atas apa yang telah aku lakukan.
-                Ada kata-kata yang seharusnya tidak aku ucapkan,
-                ada sikap yang seharusnya tidak aku lakukan,
-                dan ada hal-hal yang seharusnya bisa aku jaga lebih baik.
-                <br><br>
-
-                Aku tidak ingin mencari alasan.
-                Aku hanya ingin mengatakan bahwa
-                <strong>aku minta maaf.</strong>
-                <br><br>
-
-                Semoga suatu hari nanti,
-                ketika semuanya sudah terasa lebih tenang,
-                kamu bisa mengingat bahwa
-                aku pernah benar-benar berusaha untuk memperbaiki kesalahanku.
+            <p>
+                Mungkin tidak semuanya bisa disampaikan
+                lewat kata-kata biasa. Jadi kali ini,
+                biarkan aku menuliskannya untukmu.
             </p>
 
-            <div class="signature">
-                — dari seseorang yang menyesal
-            </div>
 
-            <!-- =========================
-                 MUSIC
-            ========================= -->
+            <button
+                class="open-button"
+                id="openButton">
 
-            <div class="music-area">
+                BUKA SURAT
 
-                <button class="music-button" id="musicButton">
-                    ♫ &nbsp; Putar Musik
-                </button>
+                <span>→</span>
 
-                <div class="music-status" id="musicStatus">
-                    Ajari Aku Cara Mencintaimu
-                </div>
-
-            </div>
-
-            <div class="footer">
-                dibuat dengan tulus
-            </div>
+            </button>
 
         </section>
+
+
+        <!-- =====================================================
+             LETTER
+        ===================================================== -->
+
+        <section
+            class="letter-wrapper"
+            id="letterWrapper">
+
+
+            <article class="letter">
+
+
+                <!-- CLOSE -->
+
+                <button
+                    class="close-button"
+                    id="closeButton"
+                    aria-label="Tutup">
+
+                    ×
+
+                </button>
+
+
+                <!-- HEADER -->
+
+                <div class="letter-top">
+
+                    <div class="letter-label">
+                        untuk seseorang
+                    </div>
+
+                    <div class="date">
+                        11.08.26
+                    </div>
+
+                </div>
+
+
+                <!-- TITLE -->
+
+                <h2>
+                    Maaf.
+                </h2>
+
+
+                <div class="separator"></div>
+
+
+                <!-- CONTENT -->
+
+                <div class="letter-content">
+
+                    <p>
+                        Aku tidak tahu harus memulainya dari mana,
+                        tapi mungkin satu kata ini adalah tempat
+                        yang paling tepat untuk memulai:
+                        <strong>maaf.</strong>
+                    </p>
+
+
+                    <p>
+                        Maaf untuk hal-hal yang mungkin sudah
+                        membuatmu kecewa. Maaf untuk perkataan
+                        yang mungkin menyakitkan, untuk sikapku
+                        yang mungkin membuatmu merasa tidak dihargai,
+                        dan untuk semua hal yang seharusnya
+                        bisa aku lakukan dengan lebih baik.
+                    </p>
+
+
+                    <div class="quote">
+
+                        “Kadang kita baru menyadari betapa
+                        berharganya seseorang setelah kita
+                        membuatnya terluka.”
+
+                    </div>
+
+
+                    <p>
+                        Aku tidak menulis ini untuk memaksamu
+                        melupakan semuanya. Aku juga tidak ingin
+                        mencari alasan atas apa yang sudah terjadi.
+                    </p>
+
+
+                    <p>
+                        Aku hanya ingin kamu tahu bahwa
+                        <strong>aku benar-benar menyesal.</strong>
+                        Kalau waktu bisa diulang, tentu ada banyak
+                        hal yang ingin aku perbaiki.
+                    </p>
+
+
+                    <p>
+                        Mungkin aku tidak bisa mengubah apa yang
+                        sudah terjadi. Tapi setidaknya aku masih
+                        bisa belajar dari kesalahan itu dan menjadi
+                        seseorang yang lebih baik setelahnya.
+                    </p>
+
+
+                    <p>
+                        Terima kasih karena pernah hadir,
+                        pernah memberikan waktu,
+                        dan pernah menjadi bagian dari cerita ini.
+                    </p>
+
+
+                    <div class="closing">
+
+                        Aku tidak tahu apakah kata-kata ini
+                        cukup untuk memperbaiki semuanya.
+
+                        <br>
+
+                        Tapi aku harap kamu bisa merasakan
+                        ketulusan di baliknya.
+
+                    </div>
+
+
+                    <div class="signature">
+
+                        Maaf, ya.
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     MUSIC
+                ================================================= -->
+
+                <div class="music-box">
+
+
+                    <div class="music-info">
+
+                        <div class="music-icon">
+                            ♫
+                        </div>
+
+
+                        <div class="music-text">
+
+                            <div class="music-name">
+                                Ajari Aku Cara Mencintaimu
+                            </div>
+
+
+                            <div
+                                class="music-state"
+                                id="musicState">
+
+                                MUSIC READY
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="music-button"
+                        id="musicButton"
+                        aria-label="Putar musik">
+
+                        ▶
+
+                    </button>
+
+
+                </div>
+
+
+                <div class="letter-footer">
+
+                    written with sincerity
+
+                </div>
+
+
+            </article>
+
+        </section>
+
 
     </main>
 
 
-    <!-- =========================
-         MUSIC
-         
-         PENTING:
-         Taruh file MP3 di folder yang sama
-         dengan index.html.
-
-         Contoh:
-         
-         /index.html
-         /Jamrud.mp3
-    ========================= -->
-
-    <audio id="music" loop preload="auto">
-        <source
-            src="lagu.mp3"
-            type="audio/mpeg">
-    </audio>
-
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
 
     <script>
 
-        const music = document.getElementById("music");
-        const musicButton = document.getElementById("musicButton");
-        const musicStatus = document.getElementById("musicStatus");
+        const intro =
+            document.getElementById("intro");
 
-        let isPlaying = false;
+        const letterWrapper =
+            document.getElementById("letterWrapper");
+
+        const openButton =
+            document.getElementById("openButton");
+
+        const closeButton =
+            document.getElementById("closeButton");
+
+        const music =
+            document.getElementById("music");
+
+        const musicButton =
+            document.getElementById("musicButton");
+
+        const musicState =
+            document.getElementById("musicState");
 
 
-        /* =========================
-           PLAY / PAUSE MUSIC
-        ========================= */
+        let playing = false;
 
-        async function playMusic() {
+
+        /* =====================================================
+           BUKA SURAT
+        ===================================================== */
+
+        openButton.addEventListener("click", function () {
+
+            intro.classList.add("hide");
+
+
+            setTimeout(function () {
+
+                intro.style.display = "none";
+
+                letterWrapper.classList.add("show");
+
+                startMusic();
+
+            }, 650);
+
+        });
+
+
+        /* =====================================================
+           TUTUP SURAT
+        ===================================================== */
+
+        closeButton.addEventListener("click", function () {
+
+            letterWrapper.classList.remove("show");
+
+
+            setTimeout(function () {
+
+                intro.style.display = "block";
+
+                setTimeout(function () {
+
+                    intro.classList.remove("hide");
+
+                }, 50);
+
+            }, 700);
+
+        });
+
+
+        /* =====================================================
+           MUSIC
+        ===================================================== */
+
+        async function startMusic() {
 
             try {
 
                 await music.play();
 
-                isPlaying = true;
+                playing = true;
 
-                musicButton.innerHTML = "❚❚ &nbsp; Jeda Musik";
-                musicStatus.textContent = "Musik sedang diputar ♫";
+                musicButton.innerHTML = "❚❚";
+
+                musicState.textContent =
+                    "NOW PLAYING";
 
             } catch (error) {
 
-                isPlaying = false;
+                playing = false;
 
-                musicButton.innerHTML = "♫ &nbsp; Putar Musik";
-                musicStatus.textContent = "Tekan tombol untuk memulai musik";
+                musicButton.innerHTML = "▶";
+
+                musicState.textContent =
+                    "PRESS PLAY";
 
             }
 
         }
 
 
-        function pauseMusic() {
+        function stopMusic() {
 
             music.pause();
 
-            isPlaying = false;
+            playing = false;
 
-            musicButton.innerHTML = "♫ &nbsp; Putar Musik";
-            musicStatus.textContent = "Musik dijeda";
+            musicButton.innerHTML = "▶";
+
+            musicState.textContent =
+                "PAUSED";
 
         }
 
 
-        musicButton.addEventListener("click", function () {
+        musicButton.addEventListener(
+            "click",
+            function () {
 
-            if (isPlaying) {
+                if (playing) {
 
-                pauseMusic();
+                    stopMusic();
 
-            } else {
+                } else {
 
-                playMusic();
+                    startMusic();
 
-            }
-
-        });
-
-
-        /* =========================
-           COBA AUTOPLAY
-           
-           Browser bisa saja memblokir
-           autoplay dengan suara.
-        ========================= */
-
-        window.addEventListener("load", function () {
-
-            setTimeout(function () {
-
-                playMusic();
-
-            }, 800);
-
-        });
-
-
-        /* =========================
-           KALAU USER BERINTERAKSI
-           DENGAN HALAMAN, COBA PLAY
-        ========================= */
-
-        document.addEventListener("click", function () {
-
-            if (!isPlaying) {
-
-                music.play()
-                    .then(function () {
-
-                        isPlaying = true;
-
-                        musicButton.innerHTML =
-                            "❚❚ &nbsp; Jeda Musik";
-
-                        musicStatus.textContent =
-                            "Musik sedang diputar ♫";
-
-                    })
-                    .catch(function () {
-
-                        // Tidak melakukan apa-apa
-                        // jika browser tetap memblokir autoplay
-
-                    });
+                }
 
             }
+        );
 
-        }, { once: true });
+
+        /* =====================================================
+           COBA AUTOPLAY SAAT WEBSITE DIBUKA
+        ===================================================== */
+
+        window.addEventListener(
+            "load",
+            function () {
+
+                setTimeout(function () {
+
+                    music.play()
+                        .then(function () {
+
+                            playing = true;
+
+                            musicButton.innerHTML =
+                                "❚❚";
+
+                            musicState.textContent =
+                                "NOW PLAYING";
+
+                        })
+                        .catch(function () {
+
+                            /*
+                                Browser mungkin memblokir
+                                autoplay. Musik akan mulai
+                                ketika user menekan tombol
+                                BUKA SURAT.
+                            */
+
+                        });
+
+                }, 1000);
+
+            }
+        );
 
     </script>
+
 
 </body>
 </html>
