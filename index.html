@@ -1,0 +1,582 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>maaf ya:(</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 50% 35%, rgba(25, 53, 92, 0.35), transparent 35%),
+                radial-gradient(circle at 20% 80%, rgba(12, 35, 65, 0.25), transparent 30%),
+                linear-gradient(135deg, #020409, #050b14 45%, #010204);
+            color: #f1f4f8;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.18;
+        }
+
+        .glow.one {
+            width: 300px;
+            height: 300px;
+            background: #173c6b;
+            top: 5%;
+            left: -100px;
+            animation: floatOne 8s ease-in-out infinite;
+        }
+
+        .glow.two {
+            width: 250px;
+            height: 250px;
+            background: #0b315c;
+            right: -80px;
+            bottom: 10%;
+            animation: floatTwo 10s ease-in-out infinite;
+        }
+
+        @keyframes floatOne {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(50px, 30px);
+            }
+        }
+
+        @keyframes floatTwo {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-40px, -30px);
+            }
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .container {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 720px;
+            padding: 55px 50px;
+            text-align: center;
+
+            background: rgba(3, 8, 16, 0.78);
+            border: 1px solid rgba(100, 145, 195, 0.18);
+            border-radius: 28px;
+
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.65),
+                inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            animation: cardAppear 1.5s ease forwards;
+        }
+
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           TOP ICON
+        ========================= */
+
+        .symbol {
+            width: 62px;
+            height: 62px;
+            margin: 0 auto 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(126, 167, 211, 0.35);
+            background: rgba(17, 42, 72, 0.25);
+
+            color: #9dbfe5;
+            font-family: Georgia, serif;
+            font-size: 25px;
+
+            box-shadow:
+                0 0 30px rgba(36, 91, 150, 0.12);
+        }
+
+        /* =========================
+           TEXT
+        ========================= */
+
+        .small-title {
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #7698bd;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(48px, 9vw, 82px);
+            font-weight: 500;
+            line-height: 0.95;
+            letter-spacing: 1px;
+            color: #f3f6fa;
+            margin-bottom: 28px;
+        }
+
+        .line {
+            width: 70px;
+            height: 1px;
+            margin: 0 auto 30px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                #648ab5,
+                transparent
+            );
+        }
+
+        .message {
+            max-width: 570px;
+            margin: 0 auto;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 23px;
+            line-height: 1.75;
+            font-weight: 400;
+            color: #d6dde6;
+        }
+
+        .message strong {
+            color: #f1f5f9;
+            font-weight: 600;
+        }
+
+        .signature {
+            margin-top: 35px;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 25px;
+            color: #91afd0;
+        }
+
+        /* =========================
+           MUSIC BUTTON
+        ========================= */
+
+        .music-area {
+            margin-top: 40px;
+        }
+
+        .music-button {
+            border: 1px solid rgba(119, 160, 205, 0.35);
+            background: rgba(17, 39, 66, 0.35);
+            color: #dce8f5;
+
+            padding: 13px 25px;
+            border-radius: 50px;
+
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            transition:
+                background 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .music-button:hover {
+            background: rgba(29, 64, 103, 0.5);
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 25px rgba(14, 49, 85, 0.3);
+        }
+
+        .music-status {
+            margin-top: 12px;
+            min-height: 16px;
+
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: #637c99;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+            margin-top: 45px;
+            padding-top: 20px;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #50657d;
+        }
+
+        /* =========================
+           STARS
+        ========================= */
+
+        .star {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: #b9d4f2;
+            border-radius: 50%;
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: 1;
+            animation: twinkle 4s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.15;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 25px 15px;
+            }
+
+            .card {
+                padding: 45px 25px;
+                border-radius: 22px;
+            }
+
+            .symbol {
+                width: 55px;
+                height: 55px;
+                margin-bottom: 22px;
+            }
+
+            .small-title {
+                font-size: 9px;
+                letter-spacing: 4px;
+            }
+
+            h1 {
+                font-size: 55px;
+            }
+
+            .message {
+                font-size: 20px;
+                line-height: 1.65;
+            }
+
+            .signature {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         BACKGROUND
+    ========================= -->
+
+    <div class="background">
+        <div class="glow one"></div>
+        <div class="glow two"></div>
+    </div>
+
+    <!-- Bintang-bintang kecil -->
+    <div class="star" style="top:12%; left:18%; animation-delay:0s;"></div>
+    <div class="star" style="top:22%; left:82%; animation-delay:1s;"></div>
+    <div class="star" style="top:35%; left:9%; animation-delay:2s;"></div>
+    <div class="star" style="top:48%; left:91%; animation-delay:1.5s;"></div>
+    <div class="star" style="top:65%; left:15%; animation-delay:3s;"></div>
+    <div class="star" style="top:78%; left:78%; animation-delay:0.5s;"></div>
+    <div class="star" style="top:88%; left:30%; animation-delay:2.5s;"></div>
+    <div class="star" style="top:15%; left:50%; animation-delay:1.2s;"></div>
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <main class="container">
+
+        <section class="card">
+
+            <div class="symbol">
+                ♡
+            </div>
+
+            <div class="small-title">
+                Untuk seseorang yang berarti
+            </div>
+
+            <h1>
+                Maaf
+            </h1>
+
+            <div class="line"></div>
+
+            <p class="message">
+                Aku tahu mungkin kata
+                <strong>“maaf”</strong>
+                tidak akan langsung membuat semuanya kembali seperti semula.
+                <br><br>
+
+                Tapi aku ingin kamu tahu bahwa aku benar-benar menyesal
+                atas apa yang telah aku lakukan.
+                Ada kata-kata yang seharusnya tidak aku ucapkan,
+                ada sikap yang seharusnya tidak aku lakukan,
+                dan ada hal-hal yang seharusnya bisa aku jaga lebih baik.
+                <br><br>
+
+                Aku tidak ingin mencari alasan.
+                Aku hanya ingin mengatakan bahwa
+                <strong>aku minta maaf.</strong>
+                <br><br>
+
+                Semoga suatu hari nanti,
+                ketika semuanya sudah terasa lebih tenang,
+                kamu bisa mengingat bahwa
+                aku pernah benar-benar berusaha untuk memperbaiki kesalahanku.
+            </p>
+
+            <div class="signature">
+                — dari seseorang yang menyesal
+            </div>
+
+            <!-- =========================
+                 MUSIC
+            ========================= -->
+
+            <div class="music-area">
+
+                <button class="music-button" id="musicButton">
+                    ♫ &nbsp; Putar Musik
+                </button>
+
+                <div class="music-status" id="musicStatus">
+                    Ajari Aku Cara Mencintaimu
+                </div>
+
+            </div>
+
+            <div class="footer">
+                dibuat dengan tulus
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         MUSIC
+         
+         PENTING:
+         Taruh file MP3 di folder yang sama
+         dengan index.html.
+
+         Contoh:
+         
+         /index.html
+         /Jamrud.mp3
+    ========================= -->
+
+    <audio id="music" loop preload="auto">
+        <source
+            src="lagu.mp3"
+            type="audio/mpeg">
+    </audio>
+
+
+    <script>
+
+        const music = document.getElementById("music");
+        const musicButton = document.getElementById("musicButton");
+        const musicStatus = document.getElementById("musicStatus");
+
+        let isPlaying = false;
+
+
+        /* =========================
+           PLAY / PAUSE MUSIC
+        ========================= */
+
+        async function playMusic() {
+
+            try {
+
+                await music.play();
+
+                isPlaying = true;
+
+                musicButton.innerHTML = "❚❚ &nbsp; Jeda Musik";
+                musicStatus.textContent = "Musik sedang diputar ♫";
+
+            } catch (error) {
+
+                isPlaying = false;
+
+                musicButton.innerHTML = "♫ &nbsp; Putar Musik";
+                musicStatus.textContent = "Tekan tombol untuk memulai musik";
+
+            }
+
+        }
+
+
+        function pauseMusic() {
+
+            music.pause();
+
+            isPlaying = false;
+
+            musicButton.innerHTML = "♫ &nbsp; Putar Musik";
+            musicStatus.textContent = "Musik dijeda";
+
+        }
+
+
+        musicButton.addEventListener("click", function () {
+
+            if (isPlaying) {
+
+                pauseMusic();
+
+            } else {
+
+                playMusic();
+
+            }
+
+        });
+
+
+        /* =========================
+           COBA AUTOPLAY
+           
+           Browser bisa saja memblokir
+           autoplay dengan suara.
+        ========================= */
+
+        window.addEventListener("load", function () {
+
+            setTimeout(function () {
+
+                playMusic();
+
+            }, 800);
+
+        });
+
+
+        /* =========================
+           KALAU USER BERINTERAKSI
+           DENGAN HALAMAN, COBA PLAY
+        ========================= */
+
+        document.addEventListener("click", function () {
+
+            if (!isPlaying) {
+
+                music.play()
+                    .then(function () {
+
+                        isPlaying = true;
+
+                        musicButton.innerHTML =
+                            "❚❚ &nbsp; Jeda Musik";
+
+                        musicStatus.textContent =
+                            "Musik sedang diputar ♫";
+
+                    })
+                    .catch(function () {
+
+                        // Tidak melakukan apa-apa
+                        // jika browser tetap memblokir autoplay
+
+                    });
+
+            }
+
+        }, { once: true });
+
+    </script>
+
+</body>
+</html>
+```
